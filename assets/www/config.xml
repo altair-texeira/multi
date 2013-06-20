@@ -5,7 +5,7 @@
     versioncode = "1"
     version     = "1.0.0">
     
-    <name>PhoneGap Camera API Sample</name>
+    <name>Multi</name>
     
     <content src="index.html"/>
     <icon src="icon.png" width="256" height="256" />
@@ -14,8 +14,8 @@
         Capture a photo using a device camera and edit (zoom and crop) the picture.
     </description>
     
-    <author href="http://software.intel.com/html5">
-        Intel Corporation
+    <author>
+       altair
     </author>
         
     <preference name="phonegap-version" value="2.0.0" />
