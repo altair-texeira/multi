@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multi</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1"> 
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+              
+        <script type="text/javascript" src="js/cordova-2.7.0.js"></script>
+        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.3.0.min.js"></script>
+        <script type="text/javascript" src="js/camera.js"></script>
+        <script type="text/javascript" src="js/conexao.js"></script
+        
+        
+        <link rel="stylesheet" href="css/camera.css" type="text/css">
+        <link rel="stylesheet" href="css/jquery.mobile.structure-1.3.0.min.css" type="text/css">
+        <link rel="stylesheet" href="css/jquery.mobile.theme-1.3.0.min.css" type="text/css">
+        <link rel="stylesheet" href="css/jquery.mobile-1.3.0.min.css" type="text/css">
+    </head>
+    
+    <body onload="onLoad()">
+<center>
+<!-- Home Page (Inicio) -->
+        <div data-role="page" id="home_page" data-theme="a">
+            <div data-role="header">
+                <h3>cam</h3>
+                <a href="#settings_page" data-role="button" id="settings_button" data-theme="b" data-mini="true" class="ui-btn-right">Configurar</a>
+            </div>
+            <div data-role="content">
+                <a href="#" data-role="button" id="open_camera_button">Acessando a camera</a>
+                <a href="#" data-role="button" id="open_lib_button">Album</a>
+                <a href="#" data-role="button" id="open_alb_button">Salvar</a>
+                <a href="#acelerometro" data-role="button" id="">Acelerometro</a>
+                <a href="bussola.html" data-role="button" id="">Bussula</a>
+                <div id="settings_info" class="ui-body ui-body-b info"></div>
+            </div>
+            <div data-role="footer" data-theme="a" data-position="fixed" id="footer" >
+               Altair
+			</div>
+        </div>
+        
+<!-- Configurações -->
+        <div data-role="page" id="settings_page" data-theme="a">
+            <div data-role="header">
+                <a href="#home_page" id="settings_cancel_button" data-role="button" data-mini="true" class="ui-btn-left">Cancela</a>
+                <h3>Configurações</h3>
+                <a href="#home_page" id="settings_ok_button" data-role="button" data-theme="b" data-mini="true" class="ui-btn-right">Salvar</a>
+            </div>
+            
+            <div data-role="content">
+            
+                <form name="settings_form" id="settings_form">
+                    
+                    <div data-role="collapsible-set" data-inset="false" data-mini="true">
+
+                        <div data-role="collapsible" data-collapsed="false">
+                            <h3>Configurar</h3>
+                        	
+                            <label for="quality_input" data-mini="true">Qualidade:</label>
+                            <input id="quality_input" name="quality_input" type="range" min="0" max="100" step="5" value="40" data-mini="true"/>
+                            
+                            <label for="width_input" data-mini="true">Largura:</label>
+                            <input id="width_input" name="width_input" type="range" min="50" max="1500" step="25" value="500" data-mini="true"/>
+                            
+                            <label for="height_input" data-mini="true">Altura:</label>
+                            <input id="height_input" name="height_input" type="range" min="50" max="1500" step="25" value="500" data-mini="true"/>
+                            
+                            <p><label data-mini="true">Edição:</label></p>
+                            <div data-role="controlgroup">
+                                <label for="edit_input" data-mini="true">Zoom</label>
+                                <input id="edit_input" name="edit_input" type="checkbox" checked data-mini="true">
+                                
+                                <label for="orient_input" data-mini="true">Orientação</label>
+                                <input id="orient_input" name="orient_input" type="checkbox" checked data-mini="true">
+                            </div>
+                    	</div>
+                    	
+                    	<div data-role="collapsible">
+                            <h3>Opções de salvamento</h3>
+                        	
+                            <label for="encod_input" data-mini="true">Codificação:</label>
+                            <select id="encod_input" name="encod_input" data-mini="true">
+                              <option value="0" selected="selected">JPEG</option>
+                              <option value="1">PNG</option>
+                            </select>
+                                  
+                            <label for="save_input" data-mini="true">Salvar para album</label>
+                            <select name="save_input" id="save_input" data-role="slider" data-mini="true" data-theme="a" data-track-theme="a">
+                                <option value="false">Não</option>
+                            	<option value="true" selected="selected">Yes</option>
+                            </select>
+                    	</div>
+                        
+                        <div data-role="collapsible">
+                            <h3>Opções para abertura</h3>
+                            <label for="media_input" data-mini="true">Tipo de midia:</label>
+                            <select id="media_input" name="media_input" data-mini="true">
+                              <option value="0" selected="selected">Imagens</option>
+                              <option value="1">Videos</option>
+                              <option value="2">Todos</option>
+                            </select>
+                        </div>
+                    </div>
+                  </form>
+                <div data-role="footer" data-theme="a" data-position="fixed" id="footer" >
+		               <a href="index.html" data-role="button" id="">Volver</a> 
+		               Altair
+				</div>
+            </div>
+        </div>
+        
+<!-- resultado -->
+        <div data-role="page" id="result_page" data-theme="a">
+            <div data-role="header">
+                <h3>Resultado</h3>
+                <a href="#home_page" id="home_button" data-role="button" data-theme="b" data-mini="true" class="ui-btn-right">Inicio</a>
+            </div>
+            <div data-role="content">
+                <h3>Resultado da imagen:</h3>
+                <img id="pic" src="" style="display: none; border: 2px black;"/>
+            </div>
+            <div data-role="footer" data-theme="a" data-position="fixed" id="footer" >
+               <a href="index.html" data-role="button" id="">Volver</a> 
+               Altair
+			</div>
+        </div>
+ <!-- acelerometro -->
+        <div data-role="page" id="acelerometro" data-theme="a">
+            <div data-role="header">
+				<h1>Resultados do acelerometro.</h1>
+				<script type="text/javascript" src="js/acelerometro.js"></script
+			</div>
+	    	<div id="content" data-role="content">
+	    		<div id="valueX"></div>
+	    		<div id="valueY"></div>
+	    		<div id="valueZ"></div>
+	     	</div>
+	     	<div data-role="footer" data-theme="a" data-position="fixed" id="footer" >
+               <a href="index.html" data-role="button" id="">Volver</a> 
+               Altair
+			</div>
+        </div>
+</center>        
+	</body>
+</html>

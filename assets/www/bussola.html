@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html manifest="offlinedatabase.manifest">
+   <head>
+   	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   	  <meta name="viewport" content="width=480; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+      <title> Busssola</title>
+      
+      <link rel="stylesheet" href="jquery.mobile-1.3.0.min.css" /> 
+      <link rel="stylesheet" href="jquery.mobile.theme-1.3.0.min.css" /> 
+      <link rel="stylesheet" href="jquery.mobile.structure-1.3.0.min.css" />
+      <link rel="stylesheet" href="altair.css" /> 
+      
+      <script type="text/javascript" src="jquery.mobile-1.3.0.min.js" ></script>
+      <script type="text/javascript" src="jquery.mobile.structure-1.3.0.min.js" ></script>
+      <script type="text/javascript" src="jquery.mobile.theme-1.3.0.min.js" ></script>
+      <script type="text/javascript" src="jquery-1.9.1.mim.js" ></script>
+      <script type="text/javascript" src="offlinedatabaseJS.js" ></script>
+   <style>
+ 	body { font-family:Verdana, Geneva, sans-serif; font-size:11px; }
+   </style>
+   
+   <script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script> 
+   <script type="text/javascript" charset="utf-8"> 
+		 function onSuccess(heading) { alert('Heading: ' + heading.magneticHeading); }; 
+		 function onError(error) { alert(' CompassError : ' + error.code); }; 
+		 navigator. compass.getCurrentHeading (onSuccess, onError);
+ 	</script> 
+   </head> 
+	<body onload="onInit()">
+	<center>
+    <div data-role="page" id="home"> 
+    	<div data-role="header" data-position="fixed" data-add-back-btn="true" id="cabecalho"> 
+                <h1>Bussola</h1>                 
+        </div> 
+		<div id="heading">Esperando por título...</div>
+		<div id="content" data-role="content"> 
+   			<button onclick="startWatch();">começar a assistir</button> 
+   			<button onclick="stopWatch();">parar de assistir</button> 
+   			   			
+   		</div>
+   		<div data-role="footer" data-theme="a" data-position="fixed" id="footer" >
+                <h4>By Altair</h4>
+		</div>
+   	</div>
+   	</center>
+	</body>
+</html> 
